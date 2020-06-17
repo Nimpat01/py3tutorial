@@ -170,6 +170,59 @@ print(stack_a)
 stack_a.pop(0)
 print(stack_a)
 
+#Using list as queue 
+#Where first element added first element retrieved (First-in First-out)
+#However list is not efficient to do queue operation 
+#as append and pop from left is not effecient as it  
+#requre full shift of list
+#To implement a queue, use collections.deque which was designed to 
+#have fast appends and pops from both ends.
+
+from collections import deque
+queue = deque(["A","B","C","D"])
+print(type(queue))
+print(queue)
+queue.append("E")
+print(queue)
+queue.append("F")
+print(queue)
+queue.popleft()
+print(queue)
+queue.popleft()
+
+
+#List Comprehensions
+#List Comprehension will provide simple and efficiet way to create list
+#Most common example of this application is creating list using loop
+#Exmple create list of square for number 1-20
+square = []
+for x in range(1,21):	#always remember right side limit is alwasy excluded
+	square.append(x**2) 
+
+print(type(square))
+print(square)
+
+#More efficient way of coding abve loop
+
+square = [x**2 for x in range(1,21)]
+print(type(square))
+print(square)
+
+#A List comprehension consist of brackets containing an expression 
+#followed by for cluase, then zero or more for or if
+#Example:
+x_and_y_cor=[(x,y) for x in range(1,10) for y in range(7,10) if x!=y]
+print(type(x_and_y_cor))
+print(x_and_y_cor)
+#Without list comprehension
+x_and_y_cor = []
+for x in range(1,10):
+	for y in range(7,10):
+		if x!=y:
+			x_and_y_cor.append((x,y))
+
+print(type(x_and_y_cor))
+print(x_and_y_cor)			
 
 
 
